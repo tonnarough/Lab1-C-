@@ -63,15 +63,15 @@ inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3)) //размер вход
  * Добавленны 3 сверточных слоя Canv2D В которых параметры были изменены следующий образом: для первого слоя количество filtrov = 8 осталось, а для последующих + 8, был добавлен параметр "padding = 'same'" влияет на размерность выхода слоя. Значение 'same' означает, что, при условии сверточного слоя с шагом = 1, размеры изображений выхода и входа совпадут.
  * Добавленны 3 слоя подвыборки MaxPool2D в которых параметры были изменены следующий образом: размер выборки выставлен тот же, что и по-умолчанию, strides(шаг) = (2,1), что значит размер шага по-вертикали = 2, размер шага по-горизотали = 1;
  ```
- x = tf.keras.layers.Conv2D(filters=8, kernel_size=3, padding = 'same')(inputs)
-  x = tf.keras.layers.MaxPool2D((2,2),strides = (2,1))(x)
-  x = tf.keras.layers.Conv2D(filters=16, kernel_size=3, padding = 'same')(x)
-  x = tf.keras.layers.MaxPool2D((2,2),strides = (2,1))(x)
-  x = tf.keras.layers.Conv2D(filters=24, kernel_size=3, padding = 'same')(x)
-  x = tf.keras.layers.MaxPool2D((2,2),strides = (2,1))(x)
-  x = tf.keras.layers.Conv2D(filters=32, kernel_size=3, padding = 'same')(x)
-  x = tf.keras.layers.MaxPool2D((2,2),strides = (2,1))(x)
-  x = tf.keras.layers.Flatten()(x)
+ x = tf.keras.layers.Conv2D(filters=8, kernel_size=3, padding = 'same')(inputs) //размер 224х224х8
+  x = tf.keras.layers.MaxPool2D((2,2),strides = (2,1))(x) // размер 112х223х16
+  x = tf.keras.layers.Conv2D(filters=16, kernel_size=3, padding = 'same')(x) 
+  x = tf.keras.layers.MaxPool2D((2,2),strides = (2,1))(x) // размер 56х222х24
+  x = tf.keras.layers.Conv2D(filters=24, kernel_size=3, padding = 'same')(x) 
+  x = tf.keras.layers.MaxPool2D((2,2),strides = (2,1))(x) // размер 28х221х32
+  x = tf.keras.layers.Conv2D(filters=32, kernel_size=3, padding = 'same')(x) 
+  x = tf.keras.layers.MaxPool2D((2,2),strides = (2,1))(x) // размер 14х220х32
+  x = tf.keras.layers.Flatten()(x) //размер 14*220*32 = 98560
   outputs = tf.keras.layers.Dense(NUM_CLASSES, activation=tf.keras.activations.softmax)(x)
   ```
  
