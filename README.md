@@ -51,12 +51,12 @@ inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3)) //размер вход
  
  ***Линейная диаграмма точности:*** 
  
- <img width="630" alt="график 512 epoch categorical accuracu" src="https://user-images.githubusercontent.com/58634989/110244602-8aff8b80-7f70-11eb-98ab-adc7c9769b41.PNG">
+
+
  
  ***Линейная диаграмма потерь:*** 
  
- <img width="771" alt="график 512 epoch loss" src="https://user-images.githubusercontent.com/58634989/110244622-a23e7900-7f70-11eb-874b-42387c4a6a17.PNG">
-
+ 
 
 
 
@@ -65,4 +65,5 @@ inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3)) //размер вход
  
  
  
+
 
