@@ -28,7 +28,7 @@ x = tf.keras.layers.MaxPool2D()(x)
 ----
 
 ```
-inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3)) //размер 224х224х3
+inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3)) //размер входного изображения 224х224х3
 ```
 **Слой 2D свертки с параметрами: количество фильтров = 8(количество выходных фильтров в свертке), kernel_size = 3(размер матрицы свертки, у нас 3х3) Слой создает ядро свертки.**
 ```
@@ -46,8 +46,9 @@ inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3)) //размер 224х224
  ```
  outputs = tf.keras.layers.Dense(NUM_CLASSES, activation=tf.keras.activations.softmax)(x)
  ```
- Графики обучения для данной нейронной сети:
+ Графики обучения для нейронной сети с одним сверточным слоем:
  ----
+ 
  ***Линейная диаграмма точности:*** 
  
  <img width="630" alt="график 512 epoch categorical accuracu" src="https://user-images.githubusercontent.com/58634989/110244602-8aff8b80-7f70-11eb-98ab-adc7c9769b41.PNG">
